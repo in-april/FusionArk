@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="1100,650" sizebox="4,4,6,6" roundcorner="5,5" caption="0,0,0,90" mininfo="800,570">
+<Default name="VScrollBar" value="button1normalimage=&quot;file='scroll.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='scroll.png' source='0,16,16,32' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='scroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='scroll.png' source='0,48,16,64' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;ffile='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='scroll.png' source='0,96,16,112' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Default name="HScrollBar" value="button1normalimage=&quot;file='hscroll.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='hscroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='hscroll.png' source='16,0,32,16' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='hscroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='hscroll.png' source='32,0,48,16' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='hscroll.png' source='32,0,48,16' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='hscroll.png' source='48,0,64,16' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='hscroll.png' source='32,0,48,16' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='hscroll.png' source='64,0,80,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='hscroll.png' source='64,0,80,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;ffile='hscroll.png' source='64,0,80,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='hscroll.png' source='64,0,80,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='hscroll.png' source='80,0,96,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='hscroll.png' source='80,0,96,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='hscroll.png' source='96,0,112,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='hscroll.png' source='80,0,96,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='hscroll.png' source='128,0,146,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='hscroll.png' source='128,0,146,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='hscroll.png' source='128,0,146,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='hscroll.png' source='128,0,146,16' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<Font id="0" name="宋体" size="13" bold="true" />
+	<Font id="1" name="宋体" size="12" bold="true" />
+	<Font id="2" name="宋体" size="12" />
+	<Font id="3" name="宋体" size="14" bold="true" />
+	<Font id="4" name="宋体" size="22" bold="true" italic="true" />
+	<Font id="5" name="宋体" size="12" />
+	<VerticalLayout bkcolor="#FFF0F0F0" bordersize="1" borderround="5,5" inset="1,0,1,0">
+		<Control height="30" bkcolor="#FFF0F0F0" />
+		<HorizontalLayout>
+			<Control width="5" />
+			<HorizontalLayout bkcolor="#FFFFFFFF" bordercolor="#FFF0F0F0" bordersize="1">
+				<TabLayout name="switch">
+					<ChildLayout xmlfile="process.xml" />
+					<ChildLayout xmlfile="sysModule.xml" />
+					<!-- <HorizontalLayout>
+						<Text text="清理插件" />
+					</HorizontalLayout>
+					<HorizontalLayout>
+						<Text text="修复漏洞" />
+					</HorizontalLayout> -->
+					<VerticalLayout>
+						<HorizontalLayout height="30" inset="3,5,5,3">
+							<Button name="prev" padding="10,2,5,0" width="18" height="18" normalimage="file='prev.png'" pushedimage="file='prev_push.png'" hotimage="file='prev_push.png'" />
+							<Button name="next" padding="10,2,5,0" width="18" height="18" normalimage="file='next.png'" pushedimage="file='next_push.png'" hotimage="file='next_push.png'" />
+							<Text text="地址" padding="5,3,5,0" font="2" width="30" />
+							<Edit height="30" padding="0,0,5,0" bordercolor="#C6CFD8" name="addressEdit" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'"/>
+						</HorizontalLayout>
+						<HorizontalLayout>
+							<HorizontalLayout name="DirTree" width="200" minwidth="200" maxwidth="520" inset="0,0,3,0" sepwidth="6" sepimm="true">
+								<MFCTree></MFCTree>
+							</HorizontalLayout>
+								
+							<HorizontalLayout inset="0,0,0,0">
+								<VerticalLayout bordercolor="#C6CFD8">
+									<List name="FileList" bkcolor="#FFFFFFFF" inset="0,0,0,0" itemshowhtml="true" vscrollbar="true" hscrollbar="true" headerbkimage="file='list_header_bg.png'" itemalign="left" itemaltbk="true" menu="true">
+										<ListHeader height="24" menu="true">
+											<ListHeaderItem text="文件名" font="1" width="250" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+											<ListHeaderItem text="大小" font="1" width="80" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+											<ListHeaderItem text="占用空间" font="1" width="80" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+											<ListHeaderItem text="创建时间" font="1" width="150" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+											<ListHeaderItem text="修改时间" font="1" width="150" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+											<!-- <ListHeaderItem visible="false" text="隐藏" font="1" width="100" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/> -->
+										</ListHeader>
+									</List>
+								</VerticalLayout>
+							</HorizontalLayout>
+						</HorizontalLayout>
+					</VerticalLayout>
+					<!-- <HorizontalLayout>
+						<Text text="清理痕迹"/>
+					</HorizontalLayout>
+					<HorizontalLayout>
+						<Text text="系统修复"/>
+					</HorizontalLayout>
+					<HorizontalLayout>
+						<Text text="高级工具" />
+					</HorizontalLayout> -->
+				</TabLayout>
+			</HorizontalLayout>
+			<Control width="5" />
+		</HorizontalLayout>
+		<Control height="5" />
+		<HorizontalLayout float="true" pos="0,5,799,30">
+			<Option pos="6, 0, 84, 26" float="true" text="进程列表" name="process" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" selected="true" />
+			<Option pos="86, 0, 164, 26" float="true" text="驱动模块" name="driver" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" />
+			<!-- <Option pos="166, 0, 244, 26" float="true" text="内核" name="kernel" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" /> -->
+			<!-- <Option pos="246, 0, 324, 26" float="true" text="钩子扫描" name="hook" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" /> -->
+			<Option pos="166, 0, 244, 26" float="true" text="文件" name="files" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" />
+			<!-- <Option pos="326, 0, 404, 26" float="true" text="文件" name="files" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" /> -->
+			<!-- <Option pos="406, 0, 484, 26" float="true" text="网络" name="network" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" /> -->
+			<!-- <Option pos="486, 0, 564, 26" float="true" text="启动信息" name="startInfo" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" /> -->
+			<!-- <Option pos="566, 0, 644, 26" float="true" text="注册表" name="register" textcolor="#FF386382" font="2" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" selectedimage="tabbar_pushed.png" group="contenttab" /> -->
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>
