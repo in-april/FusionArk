@@ -10,13 +10,15 @@ namespace ProcessFunc
 	
 	// 判断是否为有效进程(目前只检测了进程退出状态)
 	NTSTATUS IsValidProcess(PEPROCESS process);
+
 	// 根据pid获取进程信息
-	NTSTATUS GetProcessInfoByPID(HANDLE pid, PProcessItem pItem);
+	NTSTATUS GetProcessInfoByPid(HANDLE pid, PProcessItem pItem);
 
 	NTSTATUS OpenProcess(HANDLE pid, HANDLE* handle, ACCESS_MASK mask);
 
 	// 枚举进程（通过ZwQuerySystemInformation获取）
 	NTSTATUS EnumProcess(PVOID buffer, ULONG bufferSize, PULONG returnLength);
+
 	// 枚举进程2（通过暴力枚举pid获取）
 	NTSTATUS EnumProcess2(PVOID buffer, ULONG bufferSize, PULONG returnLength);  // 暂时无用
 
@@ -25,6 +27,9 @@ namespace ProcessFunc
 
 	// 关闭进程
 	NTSTATUS KillProcessByPid(HANDLE pid);
+
+	// 关闭指定进程的指定句柄
+	NTSTATUS CloseHandleByPid(HANDLE pid, HANDLE handle);
 
 	// 获取进程句柄
 	NTSTATUS GetProcessHandleByPid(HANDLE pid, ULONG access, HANDLE *hProcess);

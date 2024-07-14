@@ -157,6 +157,7 @@ enum class MinorOrder {
 	KillProcess, // 关闭进程
 	OpenProcess, // 打开进程
 	ReadVm, // 读取指定位置的内存
+	CloseHandle, // 关闭指定句柄
 
 	SysModList, // 获取内核模块列表
 	DriverList, // 获取驱动列表（补充内核列表的信息）
@@ -183,6 +184,7 @@ typedef struct _CMD
 
 	// 打开进程相关
 	uint32_t access; // MASK_ACCESS
+	uint64_t handle; // 句柄
 
 	// 内存读写相关
 	ptr64_t address;   // 读写内存的地址
@@ -209,6 +211,7 @@ typedef struct _CMD
 		memset(&destPath, 0, sizeof(destPath));
 		pid = 0;
 		access = 0;
+		handle = 0;
 
 		address = 0;
 		data_size = 0;

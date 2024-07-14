@@ -38,6 +38,11 @@ NTSTATUS ProcessFunc::dispatcher(MinorOrder subOrder, PCMD pCmd, PVOID outBuffer
 		status = ReadVirtualMemory((HANDLE)pCmd->pid, (PVOID)pCmd->address, outBuffer, pCmd->data_size);
 		break;
 	}
+	case MinorOrder::CloseHandle:
+	{
+		status = CloseHandleByPid((HANDLE)pCmd->pid, (HANDLE)pCmd->handle);
+		break;
+	}
 	default:
 		break;
 	}
@@ -53,7 +58,7 @@ NTSTATUS ProcessFunc::IsValidProcess(PEPROCESS process)
 	return STATUS_SUCCESS;
 }
 
-NTSTATUS ProcessFunc::GetProcessInfoByPID(HANDLE pid, PProcessItem pItem)
+NTSTATUS ProcessFunc::GetProcessInfoByPid(HANDLE pid, PProcessItem pItem)
 {
 	NTSTATUS  status = STATUS_SUCCESS;
 	PEPROCESS EProcess = NULL;
@@ -166,7 +171,7 @@ NTSTATUS ProcessFunc::EnumProcess(PVOID buffer, ULONG bufferSize, PULONG returnL
 
 			// 将SYSTEM_PROCESS_INFORMATION结构的信息转换为ProcessItem结构的信息
 			HANDLE pid = current->UniqueProcessId;
-			GetProcessInfoByPID(pid, pItem);
+			GetProcessInfoByPid(pid, pItem);
 			count++;
 
 			if (current->NextEntryOffset == 0) break;
@@ -364,6 +369,59 @@ NTSTATUS ProcessFunc::KillProcessByPid(HANDLE pid)
 
 	// 返回终止状态
 	return status;
+}
+
+NTSTATUS ProcessFunc::CloseHandleByPid(HANDLE pid, HANDLE handle)
+{
+	//KdBreakPoint();
+	NTSTATUS  status = STATUS_SUCCESS;
+	PEPROCESS EProcess = NULL;
+	__try
+	{
+		status = PsLookupProcessByProcessId(pid, &EProcess);
+		if (!NT_SUCCESS(status))
+		{
+			__leave;
+		}
+		status = PsAcquireProcessExitSynchronization(EProcess);
+		if (!NT_SUCCESS(status))
+		{
+			__leave;
+		}
+
+		KAPC_STATE apcState;
+		KeStackAttachProcess(EProcess, &apcState);
+		__try
+		{
+			PVOID pObj = nullptr;
+			status = ObReferenceObjectByHandle(handle,
+				SYNCHRONIZE,
+				NULL,
+				UserMode,
+				&pObj,
+				NULL);
+			// DbgPrintEx(77, 0, "[db]:STATUS %x\r\n", status);
+			if (NT_SUCCESS(status))
+			{
+				ZwClose(handle);
+				ObDereferenceObject(pObj);
+			}
+		}
+		__except (EXCEPTION_EXECUTE_HANDLER)
+		{
+			status = STATUS_UNSUCCESSFUL;
+		}
+		KeUnstackDetachProcess(&apcState);
+	}
+	__finally
+	{
+		if (EProcess)
+		{
+			PsReleaseProcessExitSynchronization(EProcess);
+			ObDereferenceObject(EProcess);   // 解引用
+		}
+		return status;
+	}
 }
 
 NTSTATUS ProcessFunc::GetProcessHandleByPid(HANDLE pid, ULONG access, HANDLE *hProcess)

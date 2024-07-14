@@ -89,6 +89,24 @@ void CMainWnd::Notify(TNotifyUI& msg)
 			}
 			
 		}
+		else if (str == L"handleList")
+		{
+			CControlUI* p = list->GetItemAt(list->GetCurSel());
+			if (p)
+			{
+				CListTextElementUI* pListElement = (CListTextElementUI*)p;
+				uint64_t handle = pListElement->GetTag();
+				std::wstring strPid = pListElement->GetUserData();
+				if (!strPid.empty())
+				{
+					uint64_t pid = std::stoull(strPid);
+					printf("handle:%d\n", handle);
+
+					int idx = CProcessView::getInstance().PopHandleMenu();
+					if (idx > 0)  CProcessView::getInstance().DispatcherMenu(idx, (void*)pid, (void*)handle);
+				}
+			}
+		}
 		else if (str == L"FileList")
 		{
 			CControlUI* p = list->GetItemAt(list->GetCurSel());

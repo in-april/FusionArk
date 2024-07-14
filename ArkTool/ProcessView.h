@@ -8,6 +8,7 @@ enum ProcessMenu {
 	ResumeProcess,
 	SaveDump,
 	DumpString,
+	HandleClose,
 };
 
 class CProcessView : public CDuiViewBase
@@ -23,6 +24,7 @@ public:
 	void ShowMemList(uint64_t pid);
 
 	int PopProcessMenu();
-	int DispatcherMenu(int menuIndex, void* p);
+	int PopHandleMenu();
+	int DispatcherMenu(int menuIndex, void* p, void* p2 = nullptr);
 };
 

@@ -57,7 +57,7 @@ void CProcessView::ShowProcess()
 	}
 }
 
-void CProcessView::ShowModList(uint64_t pid)
+void CProcessView::ShowHandleList(uint64_t pid)
 {
 	CListUI* pList = static_cast<CListUI*>(m_pPaintManager->FindControl(_T("handleList")));
 	pList->RemoveAll();
@@ -67,6 +67,10 @@ void CProcessView::ShowModList(uint64_t pid)
 	{
 		CListTextElementUI* pListElement = new CListTextElementUI;
 		pListElement->SetTag(item->value);
+
+		str.Format(_T("%llu"), pid);
+		pListElement->SetUserData(str);
+
 		pList->Add(pListElement);
 
 		str.Format(_T("%s"), CommonUtils::Ansi2Unicode(item->type_name).c_str());
@@ -86,7 +90,7 @@ void CProcessView::ShowModList(uint64_t pid)
 	}
 }
 
-void CProcessView::ShowHandleList(uint64_t pid)
+void CProcessView::ShowModList(uint64_t pid)
 {
 	CListUI* pModList = static_cast<CListUI*>(m_pPaintManager->FindControl(_T("moduleList")));
 	pModList->RemoveAll();
@@ -198,7 +202,24 @@ int CProcessView::PopProcessMenu()
 	return cmd;
 }
 
-int CProcessView::DispatcherMenu(int menuIndex, void* p)
+int CProcessView::PopHandleMenu()
+{
+	// 获取鼠标坐标
+	POINT point;
+	GetCursorPos(&point);
+	// 右击后点别地可以清除“右击出来的菜单”
+	HWND hWnd = m_pPaintManager->GetPaintWindow();
+	// SetForegroundWindow(hWnd);
+	// 生成托盘菜单
+	HMENU hPopup = CreatePopupMenu();
+	//AppendMenu(hPopup, MF_STRING | MF_ENABLED, (UINT_PTR)RefreshProcess, _T("刷新"));
+	//AppendMenu(hPopup, MF_SEPARATOR, NULL, NULL);
+	AppendMenu(hPopup, MF_STRING | MF_ENABLED, HandleClose, _T("关闭句柄"));
+	int cmd = TrackPopupMenu(hPopup, TPM_RETURNCMD, point.x, point.y, 0, hWnd, NULL);
+	return cmd;
+}
+
+int CProcessView::DispatcherMenu(int menuIndex, void* p, void* p2)
 {
 	switch (menuIndex)
 	{
@@ -293,6 +314,19 @@ int CProcessView::DispatcherMenu(int menuIndex, void* p)
 		if (::ShellExecuteA(NULL, "open", "notepad.exe", filepath.c_str(), NULL, SW_SHOWNORMAL) < (HINSTANCE)32)
 		{
 			DeleteFileA(filepath.c_str());
+		}
+		break;
+	}
+	case HandleClose:
+	{
+		uint64_t pid = (uint64_t)p;
+		uint64_t handle = (uint64_t)p2;
+
+		int ret = CProcessInfo::getInstance().closeHandle(pid, handle);
+		if (ret) MessageBoxA(NULL, "关闭句柄失败", "Info", MB_OK);
+		else
+		{
+			ShowHandleList(pid);
 		}
 		break;
 	}

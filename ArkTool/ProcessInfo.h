@@ -62,5 +62,7 @@ public:
 	bool createDumpFile(uint64_t pid, std::wstring savePath, bool isMini);
 
 	int readVirtualMemory(uint64_t pid, void* address, uint32_t size, void* outBuffer);
+
+	int closeHandle(uint64_t pid, uint64_t handle);
 };
 

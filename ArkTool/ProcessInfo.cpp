@@ -340,3 +340,14 @@ int CProcessInfo::readVirtualMemory(uint64_t pid, void* address, uint32_t size, 
 	if (ret) printf("readVirtualMemory error : %d", ret);
 	return ret;
 }
+
+int CProcessInfo::closeHandle(uint64_t pid, uint64_t handle)
+{
+	CMD cmd(m_majorOrder, MinorOrder::CloseHandle);
+	cmd.pid = pid;
+	cmd.handle = handle;
+
+	DWORD retLen = 0;
+	DWORD ret = CDriverTools::getInstance().SendIoctlEx(&cmd, sizeof(cmd), nullptr, 0, &retLen);
+	return ret;
+}
